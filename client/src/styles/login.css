@@ -1,0 +1,172 @@
+/* Full page container */
+.login-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f0f2d;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Animated blurred gradient background */
+.animated-bg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, #ff6ec4, transparent 60%),
+              radial-gradient(circle at 70% 70%, #7873f5, transparent 60%);
+  filter: blur(80px);
+  animation: bgMove 15s ease-in-out infinite alternate;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10%, -10%);
+  }
+}
+
+/* Glass effect card */
+.login-glass-card {
+  box-sizing: border-box; /* <-- extra safety */
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 380px;
+  width: 100%;
+  min-height: 450px; /* new: helps center content better */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title and subtitle */
+.login-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #ccc;
+}
+
+/* Inputs */
+.login-input {
+  /* width: 100%; */
+  padding: 14px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.login-input:focus {
+  border-color: #00c6ff;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.login-footer a {
+  color: #00c6ff;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+
+.password-wrapper {
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #ccc;
+  transition: color 0.2s;
+}
+.toggle-password:hover {
+  color: #00c6ff;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-input {
+  margin-bottom: 0; /* ✅ no need for both margin and gap */
+}
+
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.password-flex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.password-input {
+  flex: 1;
+  margin: 0; /* avoid margin-bottom */
+  padding-right: 40px; /* leave space for emoji */
+}

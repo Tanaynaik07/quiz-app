@@ -12,7 +12,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${BASE_URL}/api/auth/login`, form);
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, form, {
+        withCredentials: true,
+      });
       localStorage.setItem('token', res.data.token);
       navigate('/quiz');
     } catch(e){

@@ -11,20 +11,21 @@ const app = express();
 // app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://quiz-app-uthd.vercel.app/',
+  'https://quiz-app-uthd.vercel.app',
   'http://localhost:5173',  // <-- Replace with your deployed frontend URL
 ];
 
 app.use(cors({
   origin: function(origin, callback){
-    // allow requests with no origin (like curl or postman)
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
+  console.log("Request Origin:", origin);
+  if(!origin) return callback(null, true);
+  if(allowedOrigins.indexOf(origin) === -1){
+    const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+    return callback(new Error(msg), false);
+  }
+  return callback(null, true);
+}
+,
   credentials: true
 }));
 

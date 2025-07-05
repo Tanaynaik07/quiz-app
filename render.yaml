@@ -1,0 +1,16 @@
+services:
+  # Single Node Web Service that builds the React app and serves it via Express
+  - type: web
+    name: quiz-app
+    env: node
+    buildCommand: |
+      # Install and build the React frontend
+      npm install --prefix client
+      npm run build --prefix client
+      # Install server dependencies
+      npm install --prefix server
+    startCommand: node server/index.js
+    autoDeploy: true
+    envVars:
+      - key: MONGO_URI   # Set in Render dashboard
+        sync: false
